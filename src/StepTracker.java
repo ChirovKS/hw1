@@ -2,7 +2,6 @@ import java.util.Scanner;
 public class StepTracker {
     MonthData[] monthData = new MonthData[12]; //создал массив с классом объектов. Исходя из ранее созданного класса
     //MonthData, а не просто похуй какой!
-
     Scanner scanner= new Scanner(System.in);
     int goalByStepsPerDay = 10000;
 
@@ -14,7 +13,6 @@ public class StepTracker {
         for (int i=0; i<monthData.length; i++){ // в каждую ячейку массива я поместил сам объект
             monthData[i]= new MonthData();
         }
-        addNewNumberStepsPerDay();
 
     }
     void addNewNumberStepsPerDay(){
@@ -22,6 +20,7 @@ public class StepTracker {
         int month = scanner.nextInt();
 
         System.out.println("Введите номер дня");
+
         int day= scanner.nextInt();
 
         System.out.println("Введите количество шагов");

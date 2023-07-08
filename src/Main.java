@@ -22,12 +22,13 @@ public class Main {
                 stepTracker.changeStepGoal(goalSteps);
             } else if (command == 2) {
                 stepTracker.addNewNumberStepsPerDay();
-            } else if (command != 3) {
+            } else if (command == 3) {
                 System.out.println("За какой месяц вы хотите получить статистику?");
                 int month = scanner.nextInt();
                 monthData.printDaysAndStepsFromMonth(month);
                 monthData.printSumStepsFromMonth(month);
                 monthData.findMaxStepsFromMonth(month);
+                monthData.findBestSeries(month);
 
             } else if (command == 0) {
                 System.out.println("Выход");
