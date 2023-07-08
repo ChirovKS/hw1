@@ -39,9 +39,6 @@ public class Main {
                 System.out.println(" ");
             }
         }
-
-        printMenu();
-
     }
 
     static void printMenu() {

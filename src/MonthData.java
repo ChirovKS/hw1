@@ -49,6 +49,6 @@ public class MonthData {
                 bestSeries++;
             }
         }
-        System.out.println("Лучшая серия выполнения цели шагов в день за "+ stepTracker.monthData[month] +" "+ bestSeries);
+        System.out.println("Лучшая серия выполнения цели шаков в день за "+ stepTracker.monthData[month] +" "+ bestSeries);
     }
 }
