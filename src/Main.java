@@ -12,7 +12,7 @@ public class Main {
 
         while (command != 0) {
             StepTracker stepTracker = new StepTracker(scanner);
-            MonthData monthData = new MonthData();
+
             printMenu();
             command = scanner.nextInt();
 
@@ -25,10 +25,10 @@ public class Main {
             } else if (command == 3) {
                 System.out.println("За какой месяц вы хотите получить статистику?");
                 int month = scanner.nextInt();
-                monthData.printDaysAndStepsFromMonth(month);
-                monthData.printSumStepsFromMonth(month);
-                monthData.findMaxStepsFromMonth(month);
-                monthData.findBestSeries(month);
+                stepTracker.printDaysAndStepsFromMonth(month);
+                //stepTracker.printSumStepsFromMonth(month);
+                //stepTracker.findMaxStepsFromMonth(month);
+                //stepTracker.findBestSeries(month);
 
             } else if (command == 0) {
                 System.out.println("Выход");
