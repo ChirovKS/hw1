@@ -11,7 +11,7 @@ public class Main {
         int command = 100;
 
         while (command != 0) {
-            StepTracker stepTracker = new StepTracker(scanner);
+            StepTracker stepTracker = new StepTracker();
 
             printMenu();
             command = scanner.nextInt();
@@ -21,14 +21,21 @@ public class Main {
                 int goalSteps = scanner.nextInt();
                 stepTracker.changeStepGoal(goalSteps);
             } else if (command == 2) {
-                stepTracker.addNewNumberStepsPerDay();
+                System.out.println("Введите номер месяца");
+                int month = scanner.nextInt() -1;
+                System.out.println("Введите номер дня");
+                int day = scanner.nextInt()-1;
+                System.out.println("Введите количество шагов");
+                int steps = scanner.nextInt();
+
+
+                stepTracker.addNewNumberStepsPerDay(month, day, steps);
+
             } else if (command == 3) {
                 System.out.println("За какой месяц вы хотите получить статистику?");
-                int month = scanner.nextInt();
-                stepTracker.printDaysAndStepsFromMonth(month);
-                //stepTracker.printSumStepsFromMonth(month);
-                //stepTracker.findMaxStepsFromMonth(month);
-                //stepTracker.findBestSeries(month);
+                int month = scanner.nextInt()-1;
+                stepTracker.statistik(month);
+
 
             } else if (command == 0) {
                 System.out.println("Выход");
