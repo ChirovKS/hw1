@@ -8,30 +8,27 @@ import java.util.Scanner;
 public class Main {
     static StepTracker stepTracker;
     public static void main(String[] args) {
+        stepTracker=new StepTracker();
         Scanner scanner = new Scanner(System.in);
-        int command = 100;
+        printMenu();
+        int command = scanner.nextInt();
 
 
         while (command != 0) {
-
+            if (command == 1) {
+                readMonthDaySteps(scanner); // этот метод собирает данные и передаёт данные в метод записывающий данные в массив
+            } else if (command == 2) {
+                printStat(scanner);//
+            } else if (command == 3) {
+                readNewTarget(scanner); // записываем новую цель по шагам
+            } else if (command == 0) {
+                System.out.println("Выход из программы");
+            }
 
             printMenu();
             command = scanner.nextInt();
-
-            if (command == 1) {
-                readMonthDaySteps(scanner);
-            } else if (command == 2) {
-
-            } else if (command == 3) {
-
-
-
-            } else if (command == 0) {
-
-            } else {
-
-            }
         }
+        System.out.println("Работа завершена");
     }
 
     static void printMenu() {
@@ -39,6 +36,7 @@ public class Main {
         System.out.println("Для ввода данных - 1");
         System.out.println("Статистика за месяц - 2");
         System.out.println("Изменить цель - 3");
+        System.out.println("Выход из программы - 0");
     }
 
     static void readMonthDaySteps(Scanner scanner) {
@@ -49,7 +47,19 @@ public class Main {
         System.out.println("Введите количество шагов");
         int steps= scanner.nextInt();
 
-        stepTracker.addNewNumberStepsPerDay(month, day, steps);
+        stepTracker.addStepsByDay(month, day, steps);
+    }
+
+    static void readNewTarget(Scanner scanner){
+        System.out.println("Введите новую цель по шагам");
+        int newTarget= scanner.nextInt();
+        stepTracker.changeTarget(newTarget);
+    }
+
+    public static void printStat(Scanner scanner){
+        System.out.println("За какой месяц вы хотите увидеть статистику?");
+        int monthStat= scanner.nextInt()-1;
+        stepTracker.statistic(monthStat);
     }
 
 }
